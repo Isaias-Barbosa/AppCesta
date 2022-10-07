@@ -1,22 +1,26 @@
 import React from "react";
-import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 import Texto from '../../../componentes/Texto';
 
-export default function Detalhes({ nome, logoFazenda, nomeFazenda, descricao, preco, botao }) {
+export default function Detalhes({ titulo, preco, descricao, imagem }) {
     return <>
-        <Texto style={estilos.nome}>{nome}</Texto>
-        <View style={estilos.fazenda}>
-            <Image source={logoFazenda} style={estilos.imagemFazenda} />
-            <Text style={estilos.nomeFazenda}>{nomeFazenda}</Text>
-        </View>
-        <Texto style={estilos.descricao}>{descricao}</Texto>
-        <Texto style={estilos.preco}>{preco}</Texto>
+        <View>
+            <Image source={imagem} style={estilos.imagem} />
+            <Texto style={estilos.nome}>{titulo}</Texto>
+            <Texto style={estilos.preco}>{preco}</Texto>
+            <Texto style={estilos.descricao}>{descricao}</Texto>
 
+
+        </View>
+    </>
+
+    {/*
         <TouchableOpacity style={estilos.botao} onPress={() => { }}>
             <Texto style={estilos.textoBotao}>{botao}</Texto>
-        </TouchableOpacity>
-    </>
+        </TouchableOpacity>       
+    */}
+
 }
 
 const estilos = StyleSheet.create({
@@ -26,19 +30,9 @@ const estilos = StyleSheet.create({
         lineHeight: 42,
         fontWeight: "bold",
     },
-    fazenda: {
-        flexDirection: "row",
-        paddingVertical: 12,
-    },
-    imagemFazenda: {
-        width: 32,
-        height: 32,
-    },
-    nomeFazenda: {
-        fontSize: 16,
-        lineHeight: 26,
-        marginLeft: 12,
-
+    imagem: {
+        width: "100%",
+        height: 206,
     },
     descricao: {
         color: "#A3A3A3",
